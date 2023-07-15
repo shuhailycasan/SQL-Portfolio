@@ -1,0 +1,75 @@
+CREATE TABLE persons (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    fullname TEXT,
+    age INTEGER);
+
+INSERT INTO persons (fullname, age) VALUES ("Bruno Mars", "30");
+INSERT INTO persons (fullname, age) VALUES ("Tayloy Swift", "31");
+INSERT INTO persons (fullname, age) VALUES ("XXXTentacion", "20");
+INSERT INTO persons (fullname, age) VALUES ("Drake", "33");
+INSERT INTO persons (fullname, age) VALUES ("Miley Cyrus", "30");
+INSERT INTO persons (fullname, age) VALUES ("Selene Gomez", "28");
+INSERT INTO persons (fullname, age) VALUES ("Nicki Minaj", "35");
+INSERT INTO persons (fullname, age) VALUES ("The Weeknd", "28");
+INSERT INTO persons (fullname, age) VALUES ("Justin Bieber", "30");
+INSERT INTO persons (fullname, age) VALUES ("Chris Brown", "36");
+INSERT INTO persons (fullname, age) VALUES ("Ice Spice", "23");
+INSERT INTO persons (fullname, age) VALUES ("Ed Sheeran", "32");
+INSERT INTO persons (fullname, age) VALUES ("Juice WRLD", "21");
+INSERT INTO persons (fullname, age) VALUES ("Doja Cat", "25");
+INSERT INTO persons (fullname, age) VALUES ("Zack Tabudlo", "21");
+
+CREATE TABLE place (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    person_id INTEGER,
+    name TEXT
+);
+INSERT INTO place (person_id, name) VALUES (1, "PHILIPPINES");
+INSERT INTO place (person_id, name) VALUES (2, "USA");
+INSERT INTO place (person_id, name) VALUES (3, "USA");
+INSERT INTO place (person_id, name) VALUES (4, "CANADA");
+INSERT INTO place (person_id, name) VALUES (5, "USA");
+INSERT INTO place (person_id, name) VALUES (6, "USA");
+INSERT INTO place (person_id, name) VALUES (7, "USA");
+INSERT INTO place (person_id, name) VALUES (8, "USA");
+INSERT INTO place (person_id, name) VALUES (9, "CANADA");
+INSERT INTO place (person_id, name) VALUES (10, "USA");
+INSERT INTO place (person_id, name) VALUES (11, "USA");
+INSERT INTO place (person_id, name) VALUES (12, "United Kingdom");
+INSERT INTO place (person_id, name) VALUES (13, "USA");
+INSERT INTO place (person_id, name) VALUES (14, "USA");
+INSERT INTO place (person_id, name) VALUES (15, "PHILIPPINES");
+
+CREATE TABLE songs (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    person_id INTEGER,
+    song TEXT
+);
+INSERT INTO songs (person_id, song) VALUES (1, "Lazy Song");
+INSERT INTO songs (person_id, song) VALUES (2, "Back to December");
+INSERT INTO songs (person_id, song) VALUES (3, "MoonLight");
+INSERT INTO songs (person_id, song) VALUES (4, "SPin bout U");
+INSERT INTO songs (person_id, song) VALUES (5, "Wrecking Ball");
+INSERT INTO songs (person_id, song) VALUES (6, "Beautiful You");
+INSERT INTO songs (person_id, song) VALUES (7, "Anaconda");
+INSERT INTO songs (person_id, song) VALUES (8, "Creepin");
+INSERT INTO songs (person_id, song) VALUES (9, "Baby");
+INSERT INTO songs (person_id, song) VALUES (10, "With You");
+INSERT INTO songs (person_id, song) VALUES (11, "Boy's Liar");
+INSERT INTO songs (person_id, song) VALUES (12, "Bad Habits");
+INSERT INTO songs (person_id, song) VALUES (13, "Lucid Dreams");
+INSERT INTO songs (person_id, song) VALUES (14, "Say So");
+INSERT INTO songs (person_id, song) VALUES (15, "Pano");
+
+---------Countries and their famous Songs-------
+SELECT persons.id,persons.fullname, place.name,songs.song 
+FROM persons
+LEFT OUTER JOIN place
+ON place.person_id = persons.id
+LEFT OUTER JOIN songs
+ON songs.person_id = persons.id;
+
+-----------NUM of Singer in USA------------
+SELECT COUNT(*)Num_of_Singer_in_USA 
+FROM place
+WHERE name = "USA";
