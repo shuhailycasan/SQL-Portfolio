@@ -1,0 +1,36 @@
+CREATE TABLE bag_store (
+    id INTEGER, 
+    brand_name TEXT,
+    size TEXT,
+    quantity INTEGER,
+    price INTEGER
+);
+
+INSERT INTO bag_store VALUES(1,"CHANEL","SMALL", 5, 25);
+INSERT INTO bag_store VALUES(2," HERMÈS BIRKIN","S", 4, 30);
+INSERT INTO bag_store VALUES(3," LOUIS VUITTON", "M",8, 30);
+INSERT INTO bag_store VALUES(4," DIOR","XL", 9, 30);
+INSERT INTO bag_store VALUES(5," BOTTEGA","L", 8, 11);
+INSERT INTO bag_store VALUES(6," PRADA","L", 8, 11);
+INSERT INTO bag_store VALUES(7," Burberry","L", 8, 11);
+INSERT INTO bag_store VALUES(8," Michael Korss","L", 8, 11);
+INSERT INTO bag_store VALUES(9," Polene","L", 8, 11);
+INSERT INTO bag_store VALUES(10," COACH","L", 8, 11);
+INSERT INTO bag_store VALUES(11," Kate Spade","L", 8, 60);
+INSERT INTO bag_store VALUES(12," Calven Klein","L", 8, 23);
+INSERT INTO bag_store VALUES(13," Jimmy Choo","L", 8, 40);
+INSERT INTO bag_store VALUES(14," Off-white","L", 8, 60);
+INSERT INTO bag_store VALUES(15,"Giorgio Armani","L", 8, 50);
+
+----SELECTING ALL FROM BAG_STORE ORDER BY PRICE-------
+SELECT * FROM bag_store ORDER BY price;
+
+------ The SUM of all the Bag in BAG_STORE-------
+SELECT SUM(quantity) FROM bag_store;
+
+-------LIST ALL Most Expensive Bag from the Bag Store--------
+SELECT brand_name, price FROM bag_store
+WHERE price IN (
+    SELECT MAX(price)
+    FROM bag_store
+);
